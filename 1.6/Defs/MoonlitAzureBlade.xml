@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="LRW_RelicWeapon">
+        <defName>LRW_MoonlitAzureBlade</defName>
+        <label>Moonlit Azure Blade</label>
+        <description>A sword once wielded by an apprentice of the Dihui Star. \n\nModeled after the Dihui Star's blade, it's made to mimick its functionality to a certain degree. Allows for quick strikes using iaidō.</description>
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-15</equippedAngleOffset>
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/MoonlitAzureBlade</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>scabbard</label>
+                <capacities>
+                    <li>LRW_MoonlitAzureBladeSlash</li>
+                </capacities>
+                <power>3</power>
+                <cooldownTime>1.6</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>LRW_MoonlitAzureBladeSlash</li>
+                </capacities>
+                <power>12</power>
+                <cooldownTime>0.7</cooldownTime>
+				<armorPenetration>0.4</armorPenetration>
+            </li>
+        </tools>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Katana Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                                <rotationOffset>35</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                                <rotationOffset>-40</rotationOffset>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-7</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/MoonlitAzureBlade</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="LimbusWeapons.ModExtension">
+                <moonlitAzureBlade>
+                    <slashEffect>LRW_SlashHorizontalWeak</slashEffect>
+                    <slashSound>LRW_Sheathing</slashSound>
+                </moonlitAzureBlade>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+
+    <ToolCapacityDef>
+        <defName>LRW_MoonlitAzureBladeSlash</defName>
+        <label>Cut</label>
+    </ToolCapacityDef>
+
+    <ManeuverDef>
+        <defName>LRW_MoonlitAzureBladeSlash</defName>
+        <requiredCapacity>LRW_MoonlitAzureBladeSlash</requiredCapacity>
+        <verb>
+            <verbClass>LimbusWeapons.Verb_MoonlitAzureBlade</verbClass>
+            <meleeDamageDef>Cut</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+    <EffecterDef>
+        <defName>LRW_SlashHorizontalWeak</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashLong</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.50~0.75</scale>
+                <rotation>90</rotation>
+            </li>
+        </children>
+    </EffecterDef>
+
+</Defs>

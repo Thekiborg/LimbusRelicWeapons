@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <EyeOfOdinBrackets>Heat: {PERCENTAGE}</EyeOfOdinBrackets>
+    <LaevateinnGizmoDisabled>Unlock progress: {0} / {1}</LaevateinnGizmoDisabled>
+    <ArayashikiLabel>Uses: {0}</ArayashikiLabel>
+
+</LanguageData>

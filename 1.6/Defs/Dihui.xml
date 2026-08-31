@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_DihuiSheathed</defName>
+        <label>Dihui Star's Blade</label>
+        <description>The Dihui Star's Blade is a sword whose attacks are impossible to avoid.\n\nIts technique cuts through space itself, leaving traces where the blade has rent. When sheathing, the wielder is able to conjure a multitude of slashes that follow those same trails.</description>
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/DihuiStarBlade</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>scabbard</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>3</power>
+                <cooldownTime>1.6</cooldownTime>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_UnsheatheDihui</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                            </defaultData>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/DihuiStarBlade</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_DihuiUnsheathed</defName>
+        <label>Dihui Star's Blade</label>
+        <description>The Dihui Star's Blade is a sword whose attacks are impossible to avoid.\n\nIts technique cuts through space itself, leaving traces where the blade has rent. When sheathing, the wielder is able to conjure a multitude of slashes that follow those same trails.</description>
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/DihuiStarBladeUnsheathed</texPath>
+        </graphicData>
+        <thingSetMakerTags Inherit="False" />
+        <tools>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>LRW_Rend</li>
+                </capacities>
+                <power>8</power>
+                <cooldownTime>1.3</cooldownTime>
+                <armorPenetration>0.9</armorPenetration>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_SheatheDihui</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath (Drafted)</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                            </defaultData>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathDrafted>LimbusWeapons/Weapons/DihuiStarBladeSheath</texPathDrafted>
+                        <texPathUndrafted>LimbusWeapons/Weapons/DihuiStarBlade</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <AbilityDef>
+        <defName>LRW_UnsheatheDihui</defName>
+        <label>unsheathe</label>
+        <description>Take the blade out of the scabbard.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/DihuiStarBladeUnsheathed</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.3</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_DihuiSheath">
+                <switchTo>LRW_DihuiUnsheathed</switchTo>
+                <unsheating>true</unsheating>
+                <sheathingSound>LRW_Sheathing</sheathingSound>
+            </li>
+        </comps>
+    </AbilityDef>
+
+
+    <AbilityDef>
+        <defName>LRW_SheatheDihui</defName>
+        <label>sheathe</label>
+        <description>Put the blade into the scabbard.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/DihuiStarBlade</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <showCastingProgressBar>true</showCastingProgressBar>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>1.4</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_DihuiSheath">
+                <switchTo>LRW_DihuiSheathed</switchTo>
+                <sheathingSound>LRW_Sheathing</sheathingSound>
+                <bladetrailDamage>12</bladetrailDamage>
+                <bladetrailPen>0.9</bladetrailPen>
+                <effecterRend>LRW_SlashHorizontal</effecterRend>
+                <soundRend>LRW_RendSpaceSound</soundRend>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <ToolCapacityDef>
+        <defName>LRW_Rend</defName>
+        <label>bladetrail</label>
+    </ToolCapacityDef>
+
+    <ManeuverDef>
+        <defName>LRW_Rend</defName>
+        <requiredCapacity>LRW_Rend</requiredCapacity>
+        <verb>
+            <verbClass>LimbusWeapons.Verb_MeleeAttackBladetrail</verbClass>
+            <meleeDamageDef>Cut</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+    <ThingDef ParentName="EtherealThingBase" Name="LRW_BladetrailBase" Abstract="True">
+        <thingClass>LimbusWeapons.ThingClass_Bladetrail</thingClass>
+        <drawerType>MapMeshOnly</drawerType>
+        <tickerType>Long</tickerType>
+        <graphicData>
+            <texPath>LimbusWeapons/VFX/Bladetrail</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <altitudeLayer>PawnUnused</altitudeLayer>
+        <modExtensions>
+            <li Class="LimbusWeapons.ModExtension">
+                <bladetrail>
+                    <hoursExist>5</hoursExist>
+                    <effecterOnDestroy>LRW_SlashFlurry</effecterOnDestroy>
+                </bladetrail>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+
+    <ThingDef ParentName="LRW_BladetrailBase">
+        <defName>LRW_BladetrailSmall</defName>
+        <label>bladetrail</label>
+        <size>(1, 1)</size>
+    </ThingDef>
+
+    <ThingDef ParentName="LRW_BladetrailBase">
+        <defName>LRW_BladetrailMedium</defName>
+        <label>bladetrail</label>
+        <graphicData>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+        <size>(4, 4)</size>
+    </ThingDef>
+
+    <ThingDef ParentName="LRW_BladetrailBase">
+        <defName>LRW_BladetrailBig</defName>
+        <label>bladetrail</label>
+        <graphicData>
+            <drawSize>(5, 5)</drawSize>
+        </graphicData>
+        <size>(3, 3)</size>
+    </ThingDef>
+
+    <DamageDef ParentName="CutBase">
+        <defName>LRW_BladetrailCut</defName>
+        <label>rent space</label>
+        <hediffSolid>Cut</hediffSolid>
+    </DamageDef>
+
+    <!--  ############################# VFX ########################## -->
+
+    <EffecterDef>
+        <defName>LRW_SlashFlurry</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashLongExtra</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.65~2.25</scale>
+                <!-- maybe tweak this? -->
+                <burstCount>1~3</burstCount>
+                <positionRadius>1.25</positionRadius>
+                <positionRadiusMin>0.25</positionRadiusMin>
+                <avoidLastPositionRadius>0.50</avoidLastPositionRadius>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <EffecterDef>
+        <defName>LRW_SlashHorizontal</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashLong</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>4.50~4.75</scale>
+                <rotation>90</rotation>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashParticle</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>1.900~2.15</scale>
+                <burstCount>3~5</burstCount>
+                <angle>0</angle>
+                <rotation>0</rotation>
+                <positionRadius>0.70</positionRadius>
+                <positionRadiusMin>0.35</positionRadiusMin>
+                <speed>3.00~6.00</speed>
+                <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+                <rotateTowardsTargetCenter>True</rotateTowardsTargetCenter>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_Distortion</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>1.25</scale>
+            </li>
+            <!-- this downward is for the big sploosh and not the normal horizontal cut -->
+            <!-- you could probably disable everything below if you just want a plain horizontal cut -->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashLongExtra</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.65~2.25</scale>
+                <!-- maybe tweak this? -->
+                <burstCount>3~4</burstCount>
+                <positionRadius>1.75</positionRadius>
+                <positionRadiusMin>0.75</positionRadiusMin>
+                <avoidLastPositionRadius>1.50</avoidLastPositionRadius>
+                <positionDimensions>(6.5, 0, 0)</positionDimensions>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashLongExtra</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.65~2.25</scale>
+                <!-- maybe tweak this? -->
+                <burstCount>3~4</burstCount>
+                <positionRadius>1.75</positionRadius>
+                <positionRadiusMin>0.75</positionRadiusMin>
+                <avoidLastPositionRadius>1.50</avoidLastPositionRadius>
+                <positionDimensions>(-6.5, 0, 0)</positionDimensions>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashLongExtra</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.65~2.25</scale>
+                <!-- maybe tweak this? -->
+                <burstCount>3~8</burstCount>
+                <positionRadius>1.75</positionRadius>
+                <positionRadiusMin>0.75</positionRadiusMin>
+                <avoidLastPositionRadius>1.50</avoidLastPositionRadius>
+            </li>
+            <!-- These 3 ↑ are for trails along the horizontal one-->
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>LRW_SlashBackingRandom</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>1.65~1.80</scale>
+                <burstCount>3~4</burstCount>
+                <angle>0</angle>
+                <rotation>0</rotation>
+                <positionRadius>1.25</positionRadius>
+                <positionRadiusMin>1.00</positionRadiusMin>
+                <avoidLastPositionRadius>1.00</avoidLastPositionRadius>
+                <speed>0.75~1.25</speed>
+                <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+                <rotateTowardsTargetCenter>True</rotateTowardsTargetCenter>
+                <color>(1.00,1.00,1.00,0.65)</color>
+            </li>
+        </children>
+    </EffecterDef>
+
+
+    <FleckDef ParentName="FleckGlowDistortBackground">
+        <defName>LRW_Distortion</defName>
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <fadeInTime>0.15</fadeInTime>
+        <solidTime>0.10</solidTime>
+        <fadeOutTime>0.55</fadeOutTime>
+        <growthRate>9.00</growthRate>
+        <graphicData>
+            <texPath>Things/Mote/Black</texPath>
+            <shaderParameters>
+                <_distortionIntensity>0.02</_distortionIntensity>
+                <_brightnessMultiplier>8.00</_brightnessMultiplier>
+            </shaderParameters>
+        </graphicData>
+    </FleckDef>
+
+
+    <!-- blue -->
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>LRW_SlashLong</defName>
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <fadeInTime>0.05</fadeInTime>
+        <solidTime>0.40</solidTime>
+        <fadeOutTime>0.55</fadeOutTime>
+        <growthRate>1.25</growthRate>
+        <graphicData>
+            <texPath>LimbusWeapons/VFX/LRW_SlashLong</texPath>
+            <shaderType>MoteDistorted</shaderType>
+            <shaderParameters>
+                <_DistortionTex>/LimbusWeapons/VFX/LRW_DistortionTex</_DistortionTex>
+                <_distortionScrollSpeed>(0.00,1.00)</_distortionScrollSpeed>
+                <_distortionIntensity>0.06</_distortionIntensity>
+                <_distortionScale>1.50</_distortionScale>
+            </shaderParameters>
+            <drawSize>(0.40,4.00)</drawSize>
+            <!-- this shader won't respect altitudeLayer without this -->
+            <renderQueue>2950</renderQueue>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>LRW_SlashLongExtra</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.05</fadeInTime>
+        <solidTime>0.25</solidTime>
+        <fadeOutTime>0.40</fadeOutTime>
+        <growthRate>2.00</growthRate>
+        <graphicData>
+            <texPath>LimbusWeapons/VFX/LRW_SlashLongExtra</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+            <drawSize>(0.50,3.00)</drawSize>
+            <renderQueue>2950</renderQueue>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>LRW_SlashParticle</defName>
+        <altitudeLayer>MoteOverheadLow</altitudeLayer>
+        <fadeInTime>0.05</fadeInTime>
+        <solidTime>0.20</solidTime>
+        <fadeOutTime>0.55</fadeOutTime>
+        <growthRate>-1.00</growthRate>
+        <graphicData>
+            <texPath>LimbusWeapons/VFX/LRW_SlashParticle</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+            <renderQueue>2950</renderQueue>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+        <defName>LRW_SlashBackingRandom</defName>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <fadeInTime>0.15</fadeInTime>
+        <solidTime>0.10</solidTime>
+        <fadeOutTime>0.55</fadeOutTime>
+        <growthRate>1.00</growthRate>
+        <!-- honestly this isn't nearly as random as you'd expect, no wonder why bradson was annoyed -->
+        <randomGraphics>
+            <li>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <texPath>LimbusWeapons/VFX/LRW_SlashBackingA</texPath>
+                <shaderType>MoteGlowDistorted</shaderType>
+                <shaderParameters>
+                    <_DistortionTex>/LimbusWeapons/VFX/LRW_DistortionTex</_DistortionTex>
+                    <_distortionScrollSpeed>(0.00,1.00)</_distortionScrollSpeed>
+                    <_distortionIntensity>0.25</_distortionIntensity>
+                    <_distortionScale>1.25</_distortionScale>
+                </shaderParameters>
+                <drawSize>(1.00,2.00)</drawSize>
+            </li>
+            <li>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <texPath>LimbusWeapons/VFX/LRW_SlashBackingB</texPath>
+                <shaderType>MoteGlowDistorted</shaderType>
+                <shaderParameters>
+                    <_DistortionTex>/LimbusWeapons/VFX/LRW_DistortionTex</_DistortionTex>
+                    <_distortionScrollSpeed>(0.00,1.00)</_distortionScrollSpeed>
+                    <_distortionIntensity>0.25</_distortionIntensity>
+                    <_distortionScale>1.25</_distortionScale>
+                </shaderParameters>
+                <drawSize>(1.00,2.00)</drawSize>
+            </li>
+            <li>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <texPath>LimbusWeapons/VFX/LRW_SlashBackingC</texPath>
+                <shaderType>MoteGlowDistorted</shaderType>
+                <shaderParameters>
+                    <_DistortionTex>/LimbusWeapons/VFX/LRW_DistortionTex</_DistortionTex>
+                    <_distortionScrollSpeed>(0.00,1.00)</_distortionScrollSpeed>
+                    <_distortionIntensity>0.25</_distortionIntensity>
+                    <_distortionScale>1.25</_distortionScale>
+                </shaderParameters>
+                <drawSize>(1.00,2.00)</drawSize>
+            </li>
+        </randomGraphics>
+    </FleckDef>
+
+    <SoundDef>
+        <defName>LRW_RendSpaceSound</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>LimbusWeapons/KatanaSheating_RendSpace</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>32~32</volumeRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

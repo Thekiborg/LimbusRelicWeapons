@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_ArayashikiSheathed</defName>
+        <label>Tiansha Star's Blade</label>
+        <description>A partially translucent ōdachi that inflicts cuts that can never be made whole again. The scabbard has been sharpened to perfection to cut as a second edge. \n\nWounds caused by it will burn and reopen in its proximity. Using this Relic comes at the cost of mutilating the memories of its user, starting with the most precious or recent of them. Once the wielder has been rendered completely empty of all memories, the blade will sever anything it cuts from reality, leaving no memory of its existence.</description>
+        <graphicData>
+            <drawSize>(1.4,1.4)</drawSize>
+        </graphicData>
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/TianshaStarBlade</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>scabbard</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.4</cooldownTime>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_UnsheatheTiansha</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <rotationOffset>96</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <rotationOffset>90</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/TianshaStarBlade</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_ArayashikiUnsheathed</defName>
+        <label>Tiansha Star's Blade</label>
+        <description>A partially translucent ōdachi that inflicts cuts that can never be made whole again. The scabbard has been sharpened to perfection to cut as a second edge. \n\nWounds caused by it will burn and reopen in its proximity. Using this Relic comes at the cost of mutilating the memories of its user, starting with the most precious or recent of them. Once the wielder has been rendered completely empty of all memories, the blade will sever anything it cuts from reality, leaving no memory of its existence.</description>
+        <graphicData>
+            <drawSize>(1.4,1.4)</drawSize>
+        </graphicData>
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <thingSetMakerTags Inherit="False" />
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/TianshaStarBladeUnsheathed</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>blade</label>
+                <capacities>
+                    <li>LRW_ArayashikiCut</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.4</cooldownTime>
+            </li>
+        </tools>
+        <comps>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_SheatheTiansha</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <rotationOffset>96</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <rotationOffset>90</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/TianshaStarBlade</texPathUndrafted>
+                        <texPathDrafted>LimbusWeapons/Weapons/TianshaStarBladeSheath</texPathDrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <AbilityDef>
+        <defName>LRW_UnsheatheTiansha</defName>
+        <label>unsheathe</label>
+        <description>Take the blade out of the scabbard.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/TianshaStarBladeUnsheathed</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.3</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Arayashiki">
+                <switchTo>LRW_ArayashikiUnsheathed</switchTo>
+                <sheathingSound>LRW_Sheathing</sheathingSound>
+            </li>
+        </comps>
+    </AbilityDef>
+
+
+    <AbilityDef>
+        <defName>LRW_SheatheTiansha</defName>
+        <label>sheathe</label>
+        <description>Put the blade into the scabbard.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/TianshaStarBlade</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <showCastingProgressBar>true</showCastingProgressBar>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.3</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Arayashiki">
+                <switchTo>LRW_ArayashikiSheathed</switchTo>
+                <sheathingSound>LRW_Sheathing</sheathingSound>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <HediffDef ParentName="InjuryBase">
+        <defName>LRW_ArayashikiSlash</defName>
+        <label>Slash</label>
+        <labelNoun>a slash</labelNoun>
+        <description>A cut made by the Tiansha Star's Blade. It will never fully close, and it will reopen in the presence of the sword.</description>
+        <hediffClass>LimbusWeapons.Hediff_ArayashikiSlash</hediffClass>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_TendDuration">
+                <compClass>LimbusWeapons.HediffComp_TendArayashiki</compClass>
+                <labelTendedWell>bandaged</labelTendedWell>
+                <labelTendedWellInner>sutured</labelTendedWellInner>
+                <labelSolidTendedWell>set</labelSolidTendedWell>
+                <severityPerDayTended>0</severityPerDayTended>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="LimbusWeapons.ModExtension">
+                <arayashiki>
+                    <arayashikiSheathed>LRW_ArayashikiSheathed</arayashikiSheathed>
+                    <arayashikiUnsheathed>LRW_ArayashikiUnsheathed</arayashikiUnsheathed>
+                </arayashiki>
+            </li>
+        </modExtensions>
+        <injuryProps>
+            <painPerSeverity>0.0125</painPerSeverity>
+            <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+            <bleedRate>0.06</bleedRate>
+            <canMerge>false</canMerge>
+            <destroyedLabel>Cut off</destroyedLabel>
+            <destroyedOutLabel>Cut out</destroyedOutLabel>
+        </injuryProps>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>LRW_Muga</defName>
+        <label>Muga</label>
+        <labelNoun>Muga</labelNoun>
+        <description>This person is on the way of complete emptiness. Using arayashiki, one severs all things, memories, feelings - threads connecting them to this world. Should they keep going, their consciousness will be reduced to nothing.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="LimbusWeapons.HediffCompProperties_Muga">
+            </li>
+        </comps>
+    </HediffDef>
+
+    <DamageDef>
+        <defName>LRW_ArayashikiSlash</defName>
+        <label>Slash</label>
+        <workerClass>DamageWorker_AddInjury</workerClass>
+        <deathMessage>Someone is missing.</deathMessage>
+        <hediff>LRW_ArayashikiSlash</hediff>
+    </DamageDef>
+
+    <ToolCapacityDef>
+        <defName>LRW_ArayashikiCut</defName>
+        <label>Slash</label>
+    </ToolCapacityDef>
+
+    <ManeuverDef>
+        <defName>LRW_ArayashikiCut</defName>
+        <requiredCapacity>LRW_ArayashikiCut</requiredCapacity>
+        <verb>
+            <verbClass>LimbusWeapons.Verb_Arayashiki</verbClass>
+            <meleeDamageDef>LRW_ArayashikiSlash</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+</Defs>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="LRW_RelicWeapon">
+        <defName>LRW_ValencinaSwords</defName>
+        <label>Signature Palermitan-style swords</label>
+        <description>A set of two palmeritan-style swords. Perfect for the accelerating dueling style. \n\nThe rapier with a revolver barrel is a prized sword of the Famiglia Bognatelli. The wielder can fire bullets to propel the blade or quickly change directions. Paired with it is a curved sword with a ribbed blade.</description>
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/ValencinaSwords</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>rapier point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>18</power>
+                <cooldownTime>1.4</cooldownTime>
+				<armorPenetration>0.8</armorPenetration>
+            </li>
+            <li>
+                <label>curved edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>20</power>
+                <cooldownTime>2.1</cooldownTime>
+				<armorPenetration>0.2</armorPenetration>
+            </li>
+        </tools>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Katana Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                                <rotationOffset>-170</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                                <rotationOffset>-170</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-7</layerBehindBody>
+                        <texPathDrafted>LimbusWeapons/Weapons/ValencinaKatanaSheath</texPathDrafted>
+                        <texPathUndrafted>LimbusWeapons/Weapons/ValencinaKatanaSheathed</texPathUndrafted>
+                    </li>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Rapier Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>75</layer>
+                                <offset>(0, 0, -0.2)</offset>
+                                <rotationOffset>-152</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <offset>(0, 0, -0.25)</offset>
+                                <rotationOffset>-158</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                            <dataEast>
+                                <layer>74</layer>
+                                <rotationOffset>-71</rotationOffset>
+                                <flip>true</flip>
+                            </dataEast>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathDrafted>LimbusWeapons/Weapons/ValencinaRapierSheath</texPathDrafted>
+                        <texPathUndrafted>LimbusWeapons/Weapons/ValencinaRapierSheathed</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+</Defs>

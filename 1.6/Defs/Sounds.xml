@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <SoundDef>
+        <defName>LRW_Sheathing</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>LimbusWeapons/KatanaSheathing</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>32~32</volumeRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="LRW_RelicBodypartBase">
+        <defName>LRW_EyeOfOdin</defName>
+        <label>Eye of Odin</label>
+        <thingClass>ThingWithComps</thingClass>
+        <description>This Relic, known as the Eye of Odin, is but a third of a whole Relic that was broken into three parts.\n\nThe eye does not possess some supernatural power that shows its user the destined future. It is more akin to a computing device that analyzes everything it sees and provides the most likely scenario in the upcoming instant.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>LRW_Install_EyeOfOdin</RecipeDef>
+            <HediffDef>LRW_EyeOfOdin</HediffDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>LimbusWeapons/Items/EyeOfOdin</texPath>
+        </graphicData>
+        <statBases>
+            <MarketValue>3000</MarketValue>
+            <Mass>0.5</Mass>
+        </statBases>
+    </ThingDef>
+
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>LRW_EyeOfOdin</defName>
+        <label>Eye of Odin</label>
+        <labelNoun>an eye of Odin</labelNoun>
+        <description>This Relic, known as the Eye of Odin, is but a third of a whole Relic that was broken into three parts.\n\nThe eye does not possess some supernatural power that shows its user the destined future. It is more akin to a computing device that analyzes everything it sees and provides the most likely scenario in the upcoming instant.</description>
+        <descriptionHyperlinks>
+            <ThingDef>LRW_EyeOfOdin</ThingDef>
+            <RecipeDef>LRW_Install_EyeOfOdin</RecipeDef>
+            <HediffDef>LRW_EyeOfOdin_Overheated</HediffDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>LRW_EyeOfOdin</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>2</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <maxSeverity>1</maxSeverity>
+        <minSeverity>0.001</minSeverity>
+        <comps>
+            <li Class="LimbusWeapons.HediffCompProperties_EyeOfOdin">
+                <numberOfDodges>30</numberOfDodges>
+                <overheatHediff>LRW_EyeOfOdin_Overheated</overheatHediff>
+                <reloadPeriod>2500</reloadPeriod> <!-- One hour-->
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>LRW_EyeOfOdin_Overheated</defName>
+        <label>Eye of Odin (overheated)</label>
+        <labelNoun>an eye of Odin (overheated)</labelNoun>
+        <description>The eye's heating up, causing the socket to ache, and turning the vision red.</description>
+        <descriptionHyperlinks>
+            <HediffDef>LRW_EyeOfOdin</HediffDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>LRW_EyeOfOdin</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.5</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <!-- reload period X number of dodges -->
+                <disappearsAfterTicks>75000</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+                <canUseDecimalsShortForm>false</canUseDecimalsShortForm>
+                <sendLetterOnDisappearIfDead>false</sendLetterOnDisappearIfDead>
+                <leaveFreshWounds>false</leaveFreshWounds>
+            </li>
+            <li Class="LimbusWeapons.HediffCompProperties_EyeOfOdinOverheated">
+                <cooledHediff>LRW_EyeOfOdin</cooledHediff>
+                <timeForBurn>2500</timeForBurn> <!-- One hour -->
+            </li>
+        </comps>
+    </HediffDef>
+
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>LRW_Install_EyeOfOdin</defName>
+        <label>install eye of Odin</label>
+        <description>Install an eye of Odin.</description>
+        <workerClass>LimbusWeapons.Recipe_Surgery_NoDupes</workerClass>
+        <descriptionHyperlinks>
+            <ThingDef>LRW_EyeOfOdin</ThingDef>
+            <HediffDef>LRW_EyeOfOdin</HediffDef>
+        </descriptionHyperlinks> 
+        <jobString>Installing eye of Odin.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>LRW_EyeOfOdin</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>LRW_EyeOfOdin</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Eye</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>LRW_EyeOfOdin</addsHediff>
+    </RecipeDef>
+
+    <HediffDef ParentName="BurnBase">
+        <defName>LRW_EyeSocketBurn</defName>
+        <label>eye socket burn</label>
+        <labelNoun>a burn in the eye socket</labelNoun>
+        <description>A burn.</description>
+        <hediffClass>LimbusWeapons.Hediff_InjuryNoMerge</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_GetsPermanent">
+                <permanentLabel>burn scar</permanentLabel>
+            </li>
+        </comps>
+        <injuryProps>
+            <destroyedLabel>Burned off</destroyedLabel>
+            <destroyedOutLabel>Burned out</destroyedOutLabel>
+        </injuryProps>
+    </HediffDef>
+</Defs>

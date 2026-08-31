@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Limbus Relic Weapons</name>
+
+	<author>thekiborg</author>
+
+	<packageId>thekiborg.LimbusWeapons</packageId> <!-- a unique identifier for the mod. Special characters are not allowed, at least one dot is required. This is what gets saved in a player's mod list, and having two identical IDs leads to the mod manager becoming incapable of loading the correct mod. The game internally stores these IDs using lower case characters only -->
+
+	<description>The description of the mod. Avoid having spaces inbetween text and the description tags at the start and end</description>
+
+	<supportedVersions>
+		<li>1.6</li> <!-- Supported versions. Place rimworld versions in separate li nodes here -->
+	</supportedVersions>
+
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>CETeam.CombatExtended</li>
+	</loadAfter>
+
+	<!-- More information is available here: https://rimworldwiki.com/wiki/Modding_Tutorials/About.xml -->
+</ModMetaData>

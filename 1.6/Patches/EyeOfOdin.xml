@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="MeleeDodgeChance"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="MeleeDodgeChance"]</xpath>
+            <value>
+                <parts />
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="MeleeDodgeChance"]/parts</xpath>
+        <value>
+            <li Class="LimbusWeapons.StartPart_EyeOfOdin" />
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StatDef[defName="MeleeDodgeChance"]/postProcessCurve/points</xpath>
+        <value>
+            <li>(100, 1)</li>
+        </value>
+    </Operation>
+
+</Patch>

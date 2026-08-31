@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_LaevateinnSealed</defName>
+        <label>Lævateinn (Sealed)</label>
+        <description>A sword of overwhelming heat. \n\nOnce wielded by an Endwatcher of the ruins before being fragmented. This superheated blade acted as a source of a lava river before being found and sealed. The wielder is able to progressively undo the seals to unlock the blade's full potential at great risk to themself and everything around them.</description>
+        <!--<graphicData>
+            <drawSize>(1.4,1.4)</drawSize>
+        </graphicData>-->
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <tickerType>Long</tickerType>
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/LaevateinnSealed</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>sealed edge</label>
+                <capacities>
+                    <li>LRW_LaevateinnBlunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>2.2</cooldownTime>
+            </li>
+        </tools>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Laevateinn">
+                <progressPerAttack>0.1</progressPerAttack>
+                <progressDecayPerDay>2</progressDecayPerDay>
+            </li>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_UnsealFirstSeal</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <rotationOffset>180</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <rotationOffset>180</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/LaevateinnSealed</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_LaevateinnFirst</defName>
+        <label>Lævateinn (First Seal Removed)</label>
+        <description>A sword of overwhelming heat. \n\nOnce wielded by an Endwatcher of the ruins before being fragmented. This superheated blade acted as a source of a lava river before being found and sealed. The wielder is able to progressively undo the seals to unlock the blade's full potential at great risk to themself and everything around them. \n\nThe first seal has been removed, revealing a superheated blunt edge.</description>
+        <!--<graphicData>
+            <drawSize>(1.4,1.4)</drawSize>
+        </graphicData>-->
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <tickerType>Long</tickerType>
+        <thingSetMakerTags Inherit="False" />
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/LaevateinnFirst</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>sealed edge</label>
+                <capacities>
+                    <li>LRW_LaevateinnBlunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>unsealed edge</label>
+                <capacities>
+                    <li>LRW_LaevateinnSlash</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>2</cooldownTime>
+                <extraMeleeDamages>
+                    <li>
+                        <def>Flame</def>
+                        <amount>10</amount>
+                        <chance>0.3</chance>
+                    </li>
+                </extraMeleeDamages>
+            </li>
+        </tools>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Laevateinn">
+                <progressPerAttack>0.1</progressPerAttack>
+                <progressDecayPerDay>2</progressDecayPerDay>
+                <severityToRevert>1</severityToRevert>
+                <previousLaevateinn>LRW_LaevateinnSealed</previousLaevateinn>
+            </li>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_UnsealSecondSeal</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <rotationOffset>270</rotationOffset>
+                                <flip>true</flip>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <rotationOffset>180</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/LaevateinnFirst</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="LRW_RelicAbilityBase">
+        <defName>LRW_LaevateinnSecond</defName>
+        <label>Lævateinn (Second Seal Removed)</label>
+        <description>A sword of overwhelming heat. \n\nOnce wielded by an Endwatcher of the ruins before being fragmented. This superheated blade acted as a source of a lava river before being found and sealed. The wielder is able to progressively undo the seals to unlock the blade's full potential at great risk to themself and everything around them. \n\nThe second seal has been removed, revealing a superheated sharp edge. The reduced bulk allows for quicker attacks.</description>
+        <!--<graphicData>
+            <drawSize>(1.4,1.4)</drawSize>
+        </graphicData>-->
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <tickerType>Long</tickerType>
+        <thingSetMakerTags Inherit="False" />
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/LaevateinnSecond</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>sealed edge</label>
+                <capacities>
+                    <li>LRW_LaevateinnBlunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.8</cooldownTime>
+            </li>
+            <li>
+                <label>unsealed edge</label>
+                <capacities>
+                    <li>LRW_LaevateinnSlash</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.8</cooldownTime>
+                <extraMeleeDamages>
+                    <li>
+                        <def>Flame</def>
+                        <amount>10</amount>
+                        <chance>0.3</chance>
+                    </li>
+                </extraMeleeDamages>
+            </li>
+        </tools>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Laevateinn">
+                <progressPerAttack>0.1</progressPerAttack>
+                <progressDecayPerDay>2</progressDecayPerDay>
+                <severityToRevert>2</severityToRevert>
+                <previousLaevateinn>LRW_LaevateinnFirst</previousLaevateinn>
+            </li>
+            <li Class="CompProperties_EquippableAbility">
+                <abilityDef>LRW_UnsealLaevateinn</abilityDef>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <rotationOffset>270</rotationOffset>
+                                <flip>true</flip>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <rotationOffset>180</rotationOffset>
+                                <flip>true</flip>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/LaevateinnSecond</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="LRW_RelicWeapon">
+        <defName>LRW_Laevateinn</defName>
+        <label>Lævateinn</label>
+        <description>A sword of overwhelming heat. \n\nOnce wielded by an Endwatcher of the ruins before being fragmented. This superheated blade acted as a source of a lava river before being found and sealed. The wielder is able to progressively undo the seals to unlock the blade's full potential at great risk to themself and everything around them. \n\nFully unsealed, the sharp blade cuts through, and melt everything in its path.</description>
+        <!--<graphicData>
+            <drawSize>(1.4,1.4)</drawSize>
+        </graphicData>-->
+        <soundInteract>LRW_Sheathing</soundInteract>
+        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+        <equippedAngleOffset>-60</equippedAngleOffset>
+        <tickerType>Long</tickerType>
+        <thingSetMakerTags Inherit="False" />
+        <graphicData>
+            <texPath>LimbusWeapons/Weapons/Laevateinn</texPath>
+        </graphicData>
+        <tools>
+            <li>
+                <label>red hot edge</label>
+                <capacities>
+                    <li>LRW_LaevateinnSlash</li>
+                </capacities>
+                <power>14</power>
+                <cooldownTime>1.5</cooldownTime>
+                <extraMeleeDamages>
+                    <li>
+                        <def>Flame</def>
+                        <amount>22</amount>
+                        <chance>1</chance>
+                    </li>
+                </extraMeleeDamages>
+            </li>
+        </tools>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_Laevateinn">
+                <progressPerAttack>0.1</progressPerAttack>
+                <progressDecayPerDay>2</progressDecayPerDay>
+                <severityToRevert>3</severityToRevert>
+                <previousLaevateinn>LRW_LaevateinnSecond</previousLaevateinn>
+            </li>
+            <li Class="LimbusWeapons.CompProperties_Sheath">
+                <renderNodeProperties>
+                    <li Class="LimbusWeapons.PawnRenderNodeProperties_Sheath">
+                        <debugLabel>Weapon Sheath</debugLabel>
+                        <visibleFacing>
+                            <li>East</li>
+                            <li>South</li>
+                            <li>West</li>
+                            <li>North</li>
+                        </visibleFacing>
+                        <drawData>
+                            <defaultData>
+                                <layer>74</layer>
+                                <rotationOffset>180</rotationOffset>
+                            </defaultData>
+                            <dataWest>
+                                <layer>74</layer>
+                                <rotationOffset>270</rotationOffset>
+                            </dataWest>
+                        </drawData>
+                        <layerBehindBody>-6</layerBehindBody>
+                        <texPathUndrafted>LimbusWeapons/Weapons/Laevateinn</texPathUndrafted>
+                    </li>
+                </renderNodeProperties>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ToolCapacityDef>
+        <defName>LRW_LaevateinnBlunt</defName>
+        <label>blunt</label>
+    </ToolCapacityDef>
+    <ToolCapacityDef>
+        <defName>LRW_LaevateinnSlash</defName>
+        <label>cut</label>
+    </ToolCapacityDef>
+
+    <ManeuverDef>
+        <defName>LRW_LaevateinnBlunt</defName>
+        <requiredCapacity>LRW_LaevateinnBlunt</requiredCapacity>
+        <verb>
+            <verbClass>LimbusWeapons.Verb_MeleeAttackLaevateinn</verbClass>
+            <meleeDamageDef>Blunt</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+    <ManeuverDef>
+        <defName>LRW_LaevateinnSlash</defName>
+        <requiredCapacity>LRW_LaevateinnSlash</requiredCapacity>
+        <verb>
+            <verbClass>LimbusWeapons.Verb_MeleeAttackLaevateinn</verbClass>
+            <meleeDamageDef>Cut</meleeDamageDef>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+
+    <AbilityDef>
+        <defName>LRW_UnsealFirstSeal</defName>
+        <label>Remove first seal</label>
+        <description>Take the first seal off the sword.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/LaevateinnFirst</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.3</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_LaevateinnTransform">
+                <progressNeededForUse>1</progressNeededForUse>
+                <nextLaevateinn>LRW_LaevateinnFirst</nextLaevateinn>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>LRW_UnsealSecondSeal</defName>
+        <label>Remove second seal</label>
+        <description>Take the second seal off the sword.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/LaevateinnSecond</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.3</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_LaevateinnTransform">
+                <progressNeededForUse>2</progressNeededForUse>
+                <nextLaevateinn>LRW_LaevateinnSecond</nextLaevateinn>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>LRW_UnsealLaevateinn</defName>
+        <label>Unseal laevateinn</label>
+        <description>Unleash Laevateinn.</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>LimbusWeapons/Weapons/Laevateinn</iconPath>
+        <stunTargetWhileCasting>True</stunTargetWhileCasting>
+        <showPsycastEffects>False</showPsycastEffects>
+        <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+        <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+        <casterMustBeCapableOfViolence>true</casterMustBeCapableOfViolence>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.3</warmupTime>
+            <range>0</range>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="LimbusWeapons.CompProperties_LaevateinnTransform">
+                <progressNeededForUse>3</progressNeededForUse>
+                <nextLaevateinn>LRW_Laevateinn</nextLaevateinn>
+            </li>
+        </comps>
+    </AbilityDef>
+</Defs>

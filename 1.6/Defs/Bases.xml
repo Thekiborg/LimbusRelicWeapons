@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef Name="LRW_RelicBodypartBase" ParentName="BodyPartBase" Abstract="True">
+        <techLevel>Ultra</techLevel>
+        <thingCategories>
+            <li>BodyPartsUltra</li>
+        </thingCategories>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.80</drawSize>
+        </graphicData>
+        <statBases>
+            <Beauty>0</Beauty>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Flammability>0</Flammability>
+        </statBases>
+        <tradeability>Sellable</tradeability>
+        <techLevel>Ultra</techLevel>
+        <tradeTags>
+            <li>ExoticMisc</li>
+        </tradeTags>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
+        <useHitPoints>false</useHitPoints>
+        <stackLimit>1</stackLimit>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    </ThingDef>
+
+
+    <ThingDef Abstract="True" Name="LRW_RelicWeapon" ParentName="BaseWeapon">
+        <useHitPoints>false</useHitPoints>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.5,1.5)</drawSize>
+        </graphicData>
+        <techLevel>Ultra</techLevel>
+        <statBases>
+            <MarketValue>5000</MarketValue>
+            <Mass>2</Mass>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Flammability>0</Flammability>
+        </statBases>
+        <smeltable>false</smeltable>
+        <burnableByRecipe>false</burnableByRecipe>
+        <thingCategories>
+            <li>WeaponsMelee</li>
+        </thingCategories>
+        <weaponTags>
+            <li>UltratechMelee</li>
+        </weaponTags>
+        <tradeTags>
+            <li>WeaponMelee</li>
+        </tradeTags>
+        <weaponClasses>
+            <li>Melee</li>
+            <li>Ultratech</li>
+        </weaponClasses>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
+        <equippedAngleOffset>-30</equippedAngleOffset>
+        <relicChance>1</relicChance>
+    </ThingDef>
+
+    <ThingDef ParentName="LRW_RelicWeapon" Name="LRW_RelicAbilityBase" Abstract="True">
+        <comps Inherit="False">
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Styleable" />
+        </comps>
+    </ThingDef>
+
+</Defs>
