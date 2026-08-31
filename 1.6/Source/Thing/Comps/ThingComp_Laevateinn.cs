@@ -32,7 +32,7 @@
 				return;
 			}
 			Progress -= Props.progressDecayPerDay * (GenTicks.TickLongInterval / (float)GenDate.TicksPerDay);
-			Log.Message(parent.ParentHolder);
+
 			if (Progress < Props.severityToRevert)
 			{
 				Thing newLaev = ThingMaker.MakeThing(Props.previousLaevateinn);

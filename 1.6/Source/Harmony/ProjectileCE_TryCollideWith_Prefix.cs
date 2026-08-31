@@ -3,12 +3,12 @@
 namespace LimbusWeapons
 {
 	[HarmonyPatch]
-	internal static class BulletCE_Impact_Prefix
+	internal static class ProjectileCE_TryCollideWith_Prefix
 	{
 		private static MethodInfo TargetMethod()
 		{
 			// Resolve the method without loading the assembly directly
-			return AccessTools.Method("CombatExtended.BulletCE:Impact");
+			return AccessTools.Method("CombatExtended.ProjectileCE:TryCollideWith");
 		}
 
 
@@ -20,9 +20,9 @@ namespace LimbusWeapons
 
 
 		[HarmonyPrefix]
-		internal static bool EyeOfOdinDodgeBulletsCECompat(Thing hitThing)
+		internal static bool EyeOfOdinDodgeBulletsCECompat(Thing thing, ref bool __result)
 		{
-			if (hitThing is Pawn pawn)
+			if (thing is Pawn pawn)
 			{
 				if (pawn is null || pawn.health is null || pawn.health.hediffSet is null)
 					return true;
@@ -34,12 +34,11 @@ namespace LimbusWeapons
 					return true;
 
 
-				Log.Message(comp.GetDodgeChance);
 				if (Rand.Chance(comp.GetDodgeChance))
 				{
-					Log.Message("H");
 					MoteMaker.ThrowText(pawn.Position.ToVector3(), pawn.Map, "TextMote_Dodge".Translate(), 1.9f);
 					comp.Dodged();
+					__result = false;
 					return false;
 				}
 			}
