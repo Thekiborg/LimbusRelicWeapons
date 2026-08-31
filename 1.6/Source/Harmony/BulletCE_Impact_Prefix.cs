@@ -3,12 +3,12 @@
 namespace LimbusWeapons
 {
 	[HarmonyPatch]
-	internal static class ProjecileCE_Impact_Prefix
+	internal static class BulletCE_Impact_Prefix
 	{
 		private static MethodInfo TargetMethod()
 		{
 			// Resolve the method without loading the assembly directly
-			return AccessTools.Method("CombatExtended.ProjectileCE:Impact");
+			return AccessTools.Method("CombatExtended.BulletCE:Impact");
 		}
 
 

@@ -6,7 +6,37 @@
 
 	<packageId>thekiborg.LimbusWeapons</packageId> <!-- a unique identifier for the mod. Special characters are not allowed, at least one dot is required. This is what gets saved in a player's mod list, and having two identical IDs leads to the mod manager becoming incapable of loading the correct mod. The game internally stores these IDs using lower case characters only -->
 
-	<description>The description of the mod. Avoid having spaces inbetween text and the description tags at the start and end</description>
+	<description>Adds Limbus Company Relics and other notorious weapons to the game.
+		[h3]Relics are powerful and difficult-to-acquire tools that can be found within the Ruins. Although more notable Relics tend to possess undesirable requirements and drawbacks, their benefits are pronounced enough to make them popular among some of the City's greatest fighters.[/h3]
+
+		The items this mod adds are all uncraftable. They can be found in as rare rewards, and are about the same power level as the Monosword. Most weapons grant abilities to the user, trying to have them behave in the same way as in Limbus Company.
+
+		Additionally, all weapons will show up on the pawn while undrafted, or show the empty scabbard while drafted.
+
+		Currently, the mod adds the following items:
+		[h1]Weapons[/h1]
+		[list]
+		[*] Dihui Star's Blade.
+		[*] Moonlit Azure Blade.
+		[*] Lævateinn
+		[*] Signature Palermitan-style swords
+		[*] Arayashiki [WIP / UNSURE]
+		[/list]
+		[h1]Prosthetics[/h1]
+		[list]
+		[*]The Eye of Odin
+		[/list]
+		[h1]Compatibility[/h1]
+		[list]
+		[*] CE is supported, although the Eye of Odin bugs out bullets, everything else works fine. Just clear the bullets with devmode until it gets fixed.
+		[*] Whoever asks if the weapons are CE compatible will receive a personal, hands free prostate exam.
+		[*] Should work with most mods? They're just weapons that gives abilities.
+		[/list]
+		[h1]Legal stuff[/h1]
+		All code has been done by Thekiborg.
+		All item textures have been drawn by Kilo.
+		VFX textures have been drawn by Not Dvdyzz.
+		Any other assets not specified up until this point are taken from Project Moon, follow their [url=https://www.reddit.com/r/limbuscompany/comments/11aplv3/fanmade_guidelines/]Fan-made Guidelines[/url]. I claim no ownership of any of these assets.</description>
 
 	<supportedVersions>
 		<li>1.6</li> <!-- Supported versions. Place rimworld versions in separate li nodes here -->
