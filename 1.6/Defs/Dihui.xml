@@ -59,6 +59,10 @@
             <texPath>LimbusWeapons/Weapons/DihuiStarBladeUnsheathed</texPath>
         </graphicData>
         <thingSetMakerTags Inherit="False" />
+        <generateCommonality>0</generateCommonality>
+        <generateAllowChance>0</generateAllowChance>
+        <tradeability>None</tradeability>
+        <relicChance>0</relicChance>
         <tools>
             <li>
                 <label>edge</label>

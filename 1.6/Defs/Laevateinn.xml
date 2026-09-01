@@ -75,6 +75,10 @@
         <equippedAngleOffset>-60</equippedAngleOffset>
         <tickerType>Long</tickerType>
         <thingSetMakerTags Inherit="False" />
+        <generateCommonality>0</generateCommonality>
+        <generateAllowChance>0</generateAllowChance>
+        <tradeability>None</tradeability>
+        <relicChance>0</relicChance>
         <graphicData>
             <texPath>LimbusWeapons/Weapons/LaevateinnFirst</texPath>
         </graphicData>
@@ -156,6 +160,10 @@
         <equippedAngleOffset>-60</equippedAngleOffset>
         <tickerType>Long</tickerType>
         <thingSetMakerTags Inherit="False" />
+        <generateCommonality>0</generateCommonality>
+        <generateAllowChance>0</generateAllowChance>
+        <tradeability>None</tradeability>
+        <relicChance>0</relicChance>
         <graphicData>
             <texPath>LimbusWeapons/Weapons/LaevateinnSecond</texPath>
         </graphicData>
@@ -237,6 +245,10 @@
         <equippedAngleOffset>-60</equippedAngleOffset>
         <tickerType>Long</tickerType>
         <thingSetMakerTags Inherit="False" />
+        <generateCommonality>0</generateCommonality>
+        <generateAllowChance>0</generateAllowChance>
+        <tradeability>None</tradeability>
+        <relicChance>0</relicChance>
         <graphicData>
             <texPath>LimbusWeapons/Weapons/Laevateinn</texPath>
         </graphicData>

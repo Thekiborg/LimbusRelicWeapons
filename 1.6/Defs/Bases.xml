@@ -23,9 +23,16 @@
         <thingSetMakerTags>
             <li>RewardStandardLowFreq</li>
         </thingSetMakerTags>
+        <generateCommonality>0.1</generateCommonality>
+        <generateAllowChance>0.1</generateAllowChance>
+        <relicChance>3</relicChance>
+        <tradeability>Buyable</tradeability>
         <useHitPoints>false</useHitPoints>
         <stackLimit>1</stackLimit>
         <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <comps>
+            <li Class="CompProperties_Styleable" />
+        </comps>
     </ThingDef>
 
 
@@ -60,8 +67,11 @@
         <thingSetMakerTags>
             <li>RewardStandardLowFreq</li>
         </thingSetMakerTags>
+        <generateCommonality>0.1</generateCommonality>
+        <generateAllowChance>0.1</generateAllowChance>
+        <tradeability>Buyable</tradeability>
         <equippedAngleOffset>-30</equippedAngleOffset>
-        <relicChance>1</relicChance>
+        <relicChance>3</relicChance>
     </ThingDef>
 
     <ThingDef ParentName="LRW_RelicWeapon" Name="LRW_RelicAbilityBase" Abstract="True">
