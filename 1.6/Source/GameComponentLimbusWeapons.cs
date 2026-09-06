@@ -6,7 +6,7 @@
 		internal static Dictionary<Pawn, List<ThingClass_Bladetrail>> SpawnedBladetrailsByPawn = [];
 		private List<Pawn> _pawns;
 		private List<List<ThingClass_Bladetrail>> _bladetrails;
-		private const int TicksForArayashikiWoundsReopen = GenDate.TicksPerDay;
+		private const int TicksForArayashikiWoundsReopen = 2000;//GenDate.TicksPerDay;
 
 
 #pragma warning disable IDE0060
