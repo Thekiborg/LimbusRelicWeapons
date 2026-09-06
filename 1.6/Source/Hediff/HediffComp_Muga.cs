@@ -9,10 +9,16 @@
 		public HediffCompProperties_Muga Props => (HediffCompProperties_Muga)props;
 
 
+
 		public void UsedOnce()
 		{
 			timesUsed++;
-			ForgetRelation();
+			//ForgetRelation();
+			if (timesUsed >= Props.usesUntilMuga)
+			{
+				parent.pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.BerserkPermanent,
+					"CausedByHediff".Translate(parent.def.LabelCap), forced: true, forceWake: true, causedByMood: false, null, transitionSilently: true);
+			}
 		}
 
 
@@ -27,6 +33,13 @@
 				Log.Message(memory.otherPawn);
 			}
 			Messages.Message("Forgot something", MessageTypeDefOf.NegativeEvent);
+		}
+
+
+		public override void CompExposeData()
+		{
+			base.CompExposeData();
+			Scribe_Values.Look(ref timesUsed, "LimbusWeapons_Muga_TimesUsed");
 		}
 	}
 }

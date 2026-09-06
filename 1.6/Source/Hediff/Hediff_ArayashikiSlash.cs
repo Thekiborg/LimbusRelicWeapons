@@ -8,6 +8,17 @@ namespace LimbusWeapons
 		private HediffComp_TendArayashiki TendComp => field ??= GetComp<HediffComp_TendArayashiki>();
 
 
+		public override void PostAdd(DamageInfo? dinfo)
+		{
+			base.PostAdd(dinfo);
+
+			if (dinfo is null)
+				return;
+
+			GameComponentLimbusWeapons.ArayashikiCuts.Add(new(pawn, dinfo.Value.HitPart, Severity));
+		}
+
+
 		public override void Heal(float amount)
 		{
 

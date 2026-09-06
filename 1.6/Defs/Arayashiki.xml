@@ -78,7 +78,7 @@
                 <capacities>
                     <li>LRW_ArayashikiCut</li>
                 </capacities>
-                <power>18</power>
+                <power>100</power>
                 <cooldownTime>1.4</cooldownTime>
             </li>
         </tools>
@@ -195,7 +195,7 @@
 
     <HediffDef ParentName="InjuryBase">
         <defName>LRW_ArayashikiSlash</defName>
-        <label>Slash</label>
+        <label>Arayashiki slash</label>
         <labelNoun>a slash</labelNoun>
         <description>A cut made by the Tiansha Star's Blade. It will never fully close, and it will reopen in the presence of the sword.</description>
         <hediffClass>LimbusWeapons.Hediff_ArayashikiSlash</hediffClass>

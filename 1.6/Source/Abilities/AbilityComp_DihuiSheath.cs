@@ -50,7 +50,7 @@ namespace LimbusWeapons
 						if (thing is null) continue;
 						if (thing is Pawn pawn && pawn == parent.pawn) continue;
 
-						DamageInfo dinfo = new(LimbusDefOfs.LRW_BladetrailCut, Props.bladetrailDamage, Props.bladetrailPen, weapon: sword);
+						DamageInfo dinfo = new(LimbusDamageDefOfs.LRW_BladetrailCut, Props.bladetrailDamage, Props.bladetrailPen, weapon: sword);
 						thing.TakeDamage(dinfo);
 					}
 				}

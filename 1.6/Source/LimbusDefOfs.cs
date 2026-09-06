@@ -12,12 +12,28 @@
 
 
 		public static HediffDef LRW_EyeOfOdin;
-		public static BodyPartDef Skull;
 		public static HediffDef LRW_EyeSocketBurn;
+
 		public static ThingDef LRW_BladetrailSmall;
 		public static ThingDef LRW_BladetrailMedium;
 		public static ThingDef LRW_BladetrailBig;
+
+		public static BodyPartDef Skull;
+
+		public static HediffDef LRW_Muga;
+		public static HediffDef LRW_ArayashikiSlash;
+	}
+
+
+	[DefOf]
+	public static class LimbusDamageDefOfs
+	{
+		static LimbusDamageDefOfs()
+		{
+			DefOfHelper.EnsureInitializedInCtor(typeof(LimbusDamageDefOfs));
+		}
+
 		public static DamageDef LRW_BladetrailCut;
-		//public static HediffDef LRW_Muga;
+		public static DamageDef LRW_ArayashikiSlash;
 	}
 }
